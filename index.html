@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Cabrio Low C | FORMDESIGN</title>
+    <link rel="icon" href="favicon.ico" type="image/x-icon">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <div class="logo_header">
+            <img src="logo-formdesign-white.png" alt="Formdesign logo">
+        </div>
+    </header>
+
+    <main>
+        <section>
+            <div class="chair_img">
+                <img src="cabrio_factory.jpg" alt="Cabrio factory image">
+            </div>
+        </section>
+        
+        <!--
+        <section id="intro">
+            <h1>Židle Cabrio Low C: Stohovatelný elegantní design</h1>
+        </section>
+        -->
+
+        <!--
+        <section id="bety-box">
+            <section id="bety-name">
+                <h1>ŽIDLE CABRIO LOW C</h1>
+                <br>
+                <h3>Stohovatelný<br>elegantní<br>design<br></h3>
+            </section>
+            <section id="bety-description">
+                <p>Při výběru a nastavení židle si můžete zvolit provedení, které nejlépe odpovídá vašim potřebám. Konfigurace zahrnuje volbu potahovaného materiálu, barvy, typu područek, mechaniky. Každý prvek lze upravit tak, aby byla židle pohodlná, ergonomická a ladila s prostředím, ve kterém ji budete používat.</p>
+            </section>
+        </section>
+        -->
+
+        <!--
+        <section class="text-box">
+            <p>Cabrio Low je řada celodřevěných, jednoduše stohovatelných židlí, s elegantním designem. 
+               Charakteristické pro tuto řadu je spojení předních a zadních nohou s opěrákem z ohýbané překližkové lamely. 
+               Výrazným prvkem jsou také přiznané viditelné hrany překližky. 
+               Má bohatě čalouněný sedák a opěrák, má také nižší područky pro pohodlné zasunutí ke stolu.
+            </p>
+        </section>
+        -->
+
+        <section id="configurator-name">
+            <h2>Konfigurace produktu</h2>
+        </section>
+
+        <section id="hero">
+            <section class="model-container">
+                <div>
+                    <canvas id="scene"></canvas>
+                </div>
+            </section>
+
+            <section class="controls">
+                <div class="texture-dropdown" id="seat-dropdown">
+                  <div class="selected">
+                    <img src="textures/klasik/dublin/dublin_14.jpg" alt="Vybraná textura">
+                    <span>Dublin 14</span>
+                    <div class="arrow">&#9662;</div>
+                  </div>
+                  <div class="options"></div>
+                </div>
+
+                <div class="texture-dropdown" id="frame-dropdown">
+                  <div class="selected">
+                    <img src="textures/dub/24DB1.jpg" alt="Vybraná textura">
+                    <span>24DB1</span>
+                    <div class="arrow">&#9662;</div>
+                  </div>
+                  <div class="options"></div>
+                </div>
+            </section>
+        </section>
+    </main>
+
+    <!-- Three.js knihovny -->
+    <script src="https://cdn.jsdelivr.net/npm/three@0.125.2/build/three.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/three@0.125.2/examples/js/controls/OrbitControls.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/three@0.125.2/examples/js/loaders/GLTFLoader.js"></script>
+
+    <script src="./script.js"></script>
+</body>
+</html>

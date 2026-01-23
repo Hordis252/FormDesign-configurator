@@ -1,0 +1,339 @@
+/*
+@font-face {
+    font-family: 'Museo500';
+    src: url('museosans_500-webfont.woff') format('woff');
+    font-weight: 500;
+    font-style: normal;
+}
+
+body {
+    margin: 0;
+    overflow-x: hidden;
+    font-family: 'Museo500', sans-serif;
+}
+
+html {font-size: 20px; line-height: 150%;}
+h6 {font-size: 1.25rem; letter-spacing: -0.005em; font-weight: normal; line-height: 144%;}
+h5 {font-size: 1.5625rem; letter-spacing: -0.0083em; font-weight: normal; line-height: 137%;}
+h4 {font-size: 1.95rem; letter-spacing: -0.0116em; line-height: 130%;}
+
+*/
+
+/* typography config */
+
+@font-face {
+    font-family: 'Museo500';
+    src: url('museosans_500-webfont.woff') format('woff');
+    font-weight: 500;
+    font-style: normal;
+}
+
+body {
+    margin: 0;
+    overflow-x: hidden;
+    font-family: 'Museo500', sans-serif;
+}
+
+:root {
+  /* Type Scale */
+  --display-lg-size: 39px;
+  --display-lg-weight: 800;
+  --display-lg-line-height: 1.5;
+  --display-lg-letter-spacing: 0.015em;
+
+  --display-md-size: 35px;
+  --display-md-weight: 800;
+  --display-md-line-height: 1.5;
+  --display-md-letter-spacing: 0.015em;
+
+  --h1-size: 31px; /*31px*/
+  --h1-weight: 700;
+  --h1-line-height: 1.5;
+  --h1-letter-spacing: 0.02em;
+
+  --h2-size: 25px;
+  --h2-weight: 600;
+  --h2-line-height: 1.5;
+  --h2-letter-spacing: 0.02em;
+
+  --h3-size: 22px;
+  --h3-weight: 600;
+  --h3-line-height: 1.5;
+  --h3-letter-spacing: 0.025em;
+
+  --h4-size: 20px;
+  --h4-weight: 500;
+  --h4-line-height: 1.5;
+  --h4-letter-spacing: 0.025em;
+
+  --h5-size: 19px;
+  --h5-weight: 500;
+  --h5-line-height: 1.5;
+  --h5-letter-spacing: 0.03em;
+
+  --h6-size: 18px;
+  --h6-weight: 500;
+  --h6-line-height: 1.5;
+  --h6-letter-spacing: 0.03em;
+
+  --body-xl-size: 17px;
+  --body-xl-weight: 400;
+  --body-xl-line-height: 1.5;
+  --body-xl-letter-spacing: 0.03em;
+
+  --body-size: 16px;
+  --body-weight: 400;
+  --body-line-height: 1.5;
+  --body-letter-spacing: 0.03em;
+
+  --body-sm-size: 15px;
+  --body-sm-weight: 400;
+  --body-sm-line-height: 1.6;
+  --body-sm-letter-spacing: 0.03em;
+
+  --caption-lg-size: 14px;
+  --caption-lg-weight: 400;
+  --caption-lg-line-height: 1.6;
+  --caption-lg-letter-spacing: 0.03em;
+
+  --caption-size: 14px;
+  --caption-weight: 400;
+  --caption-line-height: 1.6;
+  --caption-letter-spacing: 0.03em;
+
+  --caption-sm-size: 13px;
+  --caption-sm-weight: 300;
+  --caption-sm-line-height: 1.6;
+  --caption-sm-letter-spacing: 0.03em;
+
+  --overline-size: 12px;
+  --overline-weight: 500;
+  --overline-line-height: 1.6;
+  --overline-letter-spacing: 0.03em;
+}
+
+/* header */
+
+header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 80px;
+    padding: 0 2rem;
+    text-align: left;
+    background: transparent;
+    transition: background 0.6s ease;
+    z-index: 1000;
+}
+
+header.scrolled {
+    background: #2b2c2e;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+}
+
+.logo_header img {
+    margin-top: 20px;
+    margin-left: 10px;
+    width: 200px;
+    height: auto;
+}
+
+/* chair factory image */
+
+.chair_img {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 400px;
+    overflow: hidden;
+}
+
+.chair_img img {
+    width: 100vw;
+    height: 300px;
+    height: auto;
+    display: block;
+}
+
+/* text-box */
+
+.text-box {
+    max-width: 1400px;
+    width: 90%;
+    margin: 0 auto;
+    padding: 0;
+    color: black;
+
+    border-bottom: 1px solid #ccc;
+    margin-bottom: 2rem;
+}
+
+#bety-box {
+    display: flex;
+
+    margin: 0 auto;
+    color: black;
+
+    border-bottom: 1px solid #ccc;
+    margin-bottom: 2rem;
+}
+
+#bety-name {
+    padding: 3rem;
+    width: 50%;
+    color: white;
+    background-color: #2b2c2e;
+}
+
+#bety-name h1 {
+    font-size: 65px;
+}
+
+#bety-name h3 {
+    font-size: 25px;
+}
+
+#bety-description {
+    padding: 3rem;
+    font-size: 25px;
+    text-align: justify;
+    margin: 0 auto;
+    width: 50%;
+    background-color: white;
+    color: #2b2c2e;
+}
+
+#intro {
+    max-width: 1400px;
+    width: 90%;
+    margin: 0 auto;
+    color: black;
+}
+
+#configurator-name {
+    max-width: 1400px;
+    width: 90%;
+    margin: 0 auto;
+    text-align: center;
+    color: black;
+}
+
+/* 3D model */
+
+#hero {
+    max-width: 1400px;
+    border-radius: 20px;
+    padding: 20px;
+    width: 80%;
+    margin: 0 auto;
+    background-color: #f1f1f1;
+    display: flex;
+    flex-wrap: wrap;
+
+}
+
+.model-container, .controls {
+    flex: 1 1 300px;
+    min-width: 280px;
+    max-height: 1400px;
+    display: flex;
+    background: transparent;
+    padding: 1rem;
+}
+
+.model-container {
+    aspect-ratio: 1 / 1;
+    align-items: center;
+    justify-content: center;
+}
+
+.model-container canvas {
+    width: 100%;
+    height: 100%;
+    display: block;
+    object-fit: cover;
+    border-right: 1px solid #ccc;
+    margin-bottom: 2rem;
+}
+
+.controls {
+    flex-direction: column;
+    max-width: 80px;
+    gap: 1rem;
+}
+
+#choose-seat,  #choose-frame {
+    border-bottom: 1px solid #ccc;
+    margin-bottom: 2rem;
+    padding: 1rem;
+}
+
+.controls label {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 0.5rem;
+}
+
+
+.texture-dropdown {
+  width: 160px;
+  border: 2px solid #ccc;
+  border-radius: 8px;
+  font-family: sans-serif;
+  cursor: pointer;
+  position: relative;
+  user-select: none;
+  background: #fff;
+}
+
+.texture-dropdown .selected {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.25rem 0.5rem;
+}
+
+.texture-dropdown .selected img {
+  width: 40px;
+  height: 40px;
+  object-fit: cover;
+  border-radius: 4px;
+}
+
+.texture-dropdown .arrow {
+  margin-left: auto;
+}
+
+.texture-dropdown .options {
+  display: none;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  width: 100%;
+  border: 2px solid #ccc;
+  border-top: none;
+  border-radius: 0 0 8px 8px;
+  background: #fff;
+  z-index: 10;
+  max-height: 300px;
+  overflow-y: auto;
+}
+
+.texture-dropdown .option {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.25rem 0.5rem;
+}
+
+.texture-dropdown .option img {
+  width: 40px;
+  height: 40px;
+  object-fit: cover;
+  border-radius: 4px;
+}
+
+.texture-dropdown .option:hover {
+  background: #f0f0f0;
+}
