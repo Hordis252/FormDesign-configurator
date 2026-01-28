@@ -1,13 +1,13 @@
-// === Nastavení scény a kamery ===
-const scena = new THREE.Scene();
+// Nastavení scény a kamery
+const scene = new THREE.Scene();
 
-const kamera = new THREE.PerspectiveCamera(
+const camera = new THREE.PerspectiveCamera(
   75,
   1,
   0.1,
   100000
 );
-kamera.position.set(-10, 7, 12);
+camera.position.set(-10, 7, 12);
 
 const canvas = document.getElementById("scene");
 const container = document.querySelector(".model-container");
@@ -26,37 +26,37 @@ function resizeToContainer() {
   const h = container.clientHeight;
   if (w > 0 && h > 0) {
     renderer.setSize(w, h, false);
-    kamera.aspect = w / h;
-    kamera.updateProjectionMatrix();
+    camera.aspect = w / h;
+    camera.updateProjectionMatrix();
   }
 }
 resizeToContainer();
 window.addEventListener("resize", resizeToContainer);
 
-// === Ovládání ===
-const controls = new THREE.OrbitControls(kamera, renderer.domElement);
+// Ovládání
+const controls = new THREE.OrbitControls(camera, renderer.domElement);
 controls.enableDamping = true;
 controls.dampingFactor = 0.05;
 controls.maxPolarAngle = 1.7;
 controls.minDistance = 10;
 controls.maxDistance = 30;
 
-// === Světla ===
-scena.add(new THREE.AmbientLight(0xffffff, 0.6));
+// Světla
+scene.add(new THREE.AmbientLight(0xffffff, 0.6));
 
 const directionalLight = new THREE.DirectionalLight(0xffffff, 0.8);
 directionalLight.position.set(2, 10, 2);
 directionalLight.castShadow = true;
 
-// kvalita stínů
+// Kvalita stínů
 directionalLight.shadow.mapSize.width = 2048;
 directionalLight.shadow.mapSize.height = 2048;
 
-// měkké rozmazané stíny
+// Měkké rozmazané stíny
 directionalLight.shadow.radius = 10;
 directionalLight.shadow.bias = -0.001;
 
-// hranice pro stíny
+// Hranice pro stíny
 directionalLight.shadow.camera.near = 1;
 directionalLight.shadow.camera.far = 50;
 directionalLight.shadow.camera.left = -15;
@@ -64,18 +64,18 @@ directionalLight.shadow.camera.right = 15;
 directionalLight.shadow.camera.top = 15;
 directionalLight.shadow.camera.bottom = -15;
 
-scena.add(directionalLight);
+scene.add(directionalLight);
 
-// === Podlaha pro stíny ===
+// Podlaha pro stíny
 const planeGeometry = new THREE.PlaneGeometry(200, 200);
 const planeMaterial = new THREE.ShadowMaterial({ opacity: 0.25 });
 const plane = new THREE.Mesh(planeGeometry, planeMaterial);
 plane.rotation.x = -Math.PI / 2;
 plane.position.y = -4.8;
 plane.receiveShadow = true;
-scena.add(plane);
+scene.add(plane);
 
-// === Načtení modelu ===
+// Načtení modelu
 let model;
 const loader = new THREE.GLTFLoader();
 loader.load('cabrio_low_template_orient.glb', (gltf) => {
@@ -92,7 +92,7 @@ loader.load('cabrio_low_template_orient.glb', (gltf) => {
     }
   });
 
-  scena.add(model);
+  scene.add(model);
 
   setPartTexture("frame_front", "textures/dub/24DB1.jpg");
   setPartTexture("frame_side", "textures/plywood.jpg");
@@ -101,17 +101,17 @@ loader.load('cabrio_low_template_orient.glb', (gltf) => {
 
 const textureLoader = new THREE.TextureLoader();
 
-// === Načtení envMap pro odlesky ===
+// Načtení envMap pro odlesky
 const envLoader = new THREE.TextureLoader();
 let envTexture;
 
 envLoader.load('textures/envmap.jpg', function (texture) {
   texture.mapping = THREE.EquirectangularReflectionMapping;
   envTexture = texture;
-  scena.environment = envTexture; // globální odrazy
+  scene.environment = envTexture;
 });
 
-// === Funkce pro změnu textury části s realistickými odlesky ===
+// Funkce pro změnu textury
 function setPartTexture(partName, textureURL) {
   if (!model) return;
 
@@ -153,16 +153,16 @@ function setPartTexture(partName, textureURL) {
   });
 }
 
-// === Animace ===
-function animuj() {
-  requestAnimationFrame(animuj);
+// Možná animace / rotace modelu
+function animate() {
+  requestAnimationFrame(animate);
   controls.update();
   if (model) model.rotation.y += 0.00;
-  renderer.render(scena, kamera);
+  renderer.render(scene, camera);
 }
-animuj();
+animate();
 
-// === Seznam textur ===
+// Seznam textur
 const seatTextures = [
   "dublin_02.jpg",
   "dublin_04.jpg",
@@ -196,8 +196,8 @@ const frameTextures = [
   "24DB7.jpg"
 ];
 
-// === Funkce pro naplnění custom dropdownu obrázky ===
-function naplnTextureDropdown(dropdownId, textures, folderPath, partName) {
+// Funkce pro naplnění dropdownu obrázky
+function filltextureDropdown(dropdownId, textures, folderPath, partName) {
   const dropdown = document.getElementById(dropdownId);
   const optionsContainer = dropdown.querySelector('.options');
   const selectedImg = dropdown.querySelector('.selected img');
@@ -240,10 +240,10 @@ function naplnTextureDropdown(dropdownId, textures, folderPath, partName) {
 }
 
 // Naplnění dropdownů
-naplnTextureDropdown('seat-dropdown', seatTextures, 'textures/klasik/dublin/', 'seat');
-naplnTextureDropdown('frame-dropdown', frameTextures, 'textures/dub/', 'frame_front');
+filltextureDropdown('seat-dropdown', seatTextures, 'textures/klasik/dublin/', 'seat');
+filltextureDropdown('frame-dropdown', frameTextures, 'textures/dub/', 'frame_front');
 
-// Scroll mechanic
+// Scroll mechanika
 window.addEventListener("scroll", function () {
   const header = document.querySelector("header");
   if (this.window.scrollY > 50) {
@@ -252,3 +252,4 @@ window.addEventListener("scroll", function () {
     header.classList.remove("scrolled");
   }
 });
+
